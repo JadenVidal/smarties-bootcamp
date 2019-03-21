@@ -1,0 +1,18 @@
+version: "3.5"
+services:
+  application:
+    build: 
+      context: .
+      target: smarties
+    container_name: smarties
+    expose:
+      - "3000"
+    ports:
+      - "8070:3000"
+    networks:
+      - smarties
+    volumes:
+      - ./application:/home/smarties
+    command: tail -F /dev/null
+networks:
+  smarties:
